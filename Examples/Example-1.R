@@ -30,7 +30,7 @@ for (questionNr in seq(1, No.Of.Questions, by=1 )){
   answerVector[2] <- paste((pnorm(val,mean, SD) * 100)/ 2, "%", sep = "")
   answerVector[3] <- paste((1 - pnorm(val, mean, SD) * 100), "%", sep = "")
   answerVector[4] <- paste(pnorm(val, mean, SD)* 100 * 2 , "%", sep = "")
-  answerVector[3] <- paste((pnorm(-val, mean, SD) * 100 ), "%", sep = "")
+  answerVector[5] <- paste((pnorm(-val, mean, SD) * 100 ), "%", sep = "")
   
   
   
@@ -46,3 +46,4 @@ for (questionNr in seq(1, No.Of.Questions, by=1 )){
 }
 
 writeItToFile(questionID, poolOfQuestions)
+
