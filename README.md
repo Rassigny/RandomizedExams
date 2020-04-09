@@ -1,4 +1,4 @@
-# Randomized Exams or Quizes for Backboard Learn. 
+# Generating Randomized Exams/Quizzes for Backboard Learn. 
 
 This project is an implementation of randomized exams for Blackboard Learn. 
 
