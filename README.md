@@ -5,11 +5,13 @@ This project is an implementation of randomized exams for Blackboard Learn.
 # How to Run 
 This is an implementation in R
 
+clone the github project and do the following on the command line. 
 
-'''
+```
 cd Examples/
 Rscript Example-1.R
-'''
+```
+
 It includes implemented R functions from  ../Randomized_Quizzes.R file. 
 
 source('../Randomized_Quizzes.R',  chdir =FALSE)
