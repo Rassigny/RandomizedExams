@@ -41,6 +41,11 @@ for (questionNr in seq(1, No.Of.Questions, by=1)){
     answerVector[5] <- pnorm(abs(z))
     answerVector[6] <- roundUP((xbar + muNull)/(sd/n))
     answerVector[7] <- roundUP((xbar + muNull)/(sd/sqrt(n)))
+    
+    # Check duplicates
+    for (a in answerVector) {
+        if(a %in% answerVector[answerVector != a]) stop("There are duplicates")
+    } 
    
     poolOfQuestions <-randomAndAddToPool(answerVector, question.Text, poolOfQuestions, 1)
 }

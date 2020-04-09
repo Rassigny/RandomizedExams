@@ -35,6 +35,11 @@ for (questionNr in seq(1, No.Of.Questions, by=1 )){
   answerVector[3] <- roundUP((cor(x,y) + 1))
   answerVector[4] <- roundUP(-(cor(x,y) - 1))
 
+  # Check duplicates
+  for (a in answerVector) {
+    if(a %in% answerVector[answerVector != a]) stop("There are duplicates")
+  } 
+  
   poolOfQuestions<-randomAndAddToPool(answerVector, question.Text, poolOfQuestions, 1)
   
 }

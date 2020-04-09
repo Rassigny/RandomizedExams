@@ -27,10 +27,17 @@ for (questionNr in seq(1, No.Of.Questions, by=1 )){
   answerVector[1] <- paste(roundUP(pnorm(val,mean, SD) * 100), "%", sep = "")
 
   # All other wrong answers.
-  answerVector[2] <- paste(roundUP((pnorm(val,mean, SD) * 100)/ 2), "%", sep = "")
-  answerVector[3] <- paste(roundUP((1 - pnorm(val, mean, SD))* 100), "%", sep = "")
-  answerVector[4] <-paste(roundUP(pnorm(val, mean, SD)* 100 *2 ), "%", sep = "")
-  answerVector[5] <- paste(0, "%", sep = "")
+  answerVector[2] <- paste((pnorm(val,mean, SD) * 100)/ 2, "%", sep = "")
+  answerVector[3] <- paste((1 - pnorm(val, mean, SD) * 100), "%", sep = "")
+  answerVector[4] <- paste(pnorm(val, mean, SD)* 100 * 2 , "%", sep = "")
+  answerVector[3] <- paste((pnorm(-val, mean, SD) * 100 ), "%", sep = "")
+  
+  
+  
+  # Check duplicates
+  for (a in answerVector) {
+    if(a %in% answerVector[answerVector != a]) stop("There are duplicates")
+  } 
   
   # Use RandomAndAddToPool function to generate txt question pool file. 
   # The last parameter 1 , means here that this is a multiple choice question and not a multiple answer. 
