@@ -101,4 +101,8 @@ Note-1: you have to reject every backslash like \\ (use double backslash instead
 Note-2: Start and end of Latex MathJax should be \\(   HERE YOUR LATEX \\) 
 
 
+# Acknowledgment 
+This work is done at Boston University, Metropolitan College, Computer Science Department 
+By Shinsaku Okazaki, Paritosh Shirodkar, Sahil Gupta and Kia Teymourian 
+
 
