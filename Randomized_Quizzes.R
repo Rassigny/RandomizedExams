@@ -54,19 +54,32 @@ writeItToFile <- function(questionID, poolOfQuestions ){
 }
 
 
-
+# This function generates the random question. 
+# 
 randomAndAddToPool<- function(answerVector, question.Text, poolOfQuestions, num.answer){
   
   # Randomize the order of correct answer.
   multipleChoiceAnswers <-randomOrder(answerVector, num.answer) 
   
   # Multiple Answer should start with MC
-  if (num.answer > 1) {
+  if (num.answer == 1) {
     question.Text <- paste("MA\t", question.Text, sep = "" )
-  } else {
+  } else if (num.answer == 0 ) {
+    # Essay Question 
+    question.Text <- paste("ESS\t", question.Text, sep = "" )
+    # If it is an essay question then we do not have any answers. 
+    multipleChoiceAnswers <- ""
+    
+  } else if (num.answer > 1) {
     # Multiple Choice questions should start with MC
     question.Text <- paste("MC\t", question.Text, sep = "" )
+    
+  } else {
+    #ERROR
+    print("ERROR: Number of answers must be 0 for Essay, 1 for Multiple Choice or larger than one for Multiple Answer.")
+    question.Text <- "ERROR"
   }
+  
   finalQuestion <- paste(question.Text , multipleChoiceAnswers , sep = "")
   return(c(poolOfQuestions, finalQuestion))
 } 
